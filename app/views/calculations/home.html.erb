@@ -3,11 +3,13 @@
 <p>Our little calculator has an infinite number of resources available for you. The resources all live at URLs according to the following scheme:</p>
 
 <ul>
-  <li>The square of a particular NUMBER lives at the URL <code>/square/NUMBER</code></li>
-  <li>The square root of a particular NUMBER lives at the URL <code>/square_root/NUMBER</code></li>
+  <li>The square of <%= @the_number %> lives at the URL <a href="/square/<%= @the_number %>">Square</a></li>
+  <li>The square root of <%= @the_number %> lives at the URL <a href="/square_root/<%= @the_number %>">Square Root</a></li>
   <li>
-    The size of a monthly loan payment, given an annual interest rate (as a percentage), a total number of payments, and a principal amount, lives at the URL
-    <pre>/payment/INTEREST_RATE/NUMBER_OF_PAYMENTS/PRINCIPAL_VALUE</pre>
+    The size of a monthly loan payment, given an annual interest rate of <%= @interest_rate %>%, a total number of <%= @number_of_payments %> payments, and a principal amount of <%= @present_value %>, lives at the URL
+    <pre>
+      <a href="/payment/<%= @interest_rate %>/<%= @number_of_payments %>/<%= @present_value %>">Monthly Loan Payment</a>
+    </pre>
   </li>
 </ul>
 
