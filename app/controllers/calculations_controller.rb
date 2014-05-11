@@ -16,15 +16,15 @@ class CalculationsController < ApplicationController
     @answer = Math.sqrt(@the_number)
   end
 
-  def pmt
+  def pmt (@interest_rate, @number_of_payments, @present_value)
     @interest_rate = params[:interest_rate].to_i
     @number_of_payments = params[:number_of_payments].to_i
     @present_value = params[:present_value].to_i
-    rate12 = @interest_rate/100/12
+    rate12 = @interest_rate/100.0/12
     numerator = @present_value*rate12
     denomenator = 1-(1+rate12)**-@number_of_payments
     pmt = numerator/denomenator
-    @payment = "#{pmt(@interest_rate,@number_of_payments,@present_value)}"
+    @payment = "#{pmt(@interest_rate, @number_of_payments, @present_value)}"
   end
 
 end
