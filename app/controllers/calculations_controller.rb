@@ -17,10 +17,10 @@ class CalculationsController < ApplicationController
   end
 
   def pmt (@interest_rate, @number_of_payments, @present_value)
-    @interest_rate = params[:interest_rate].to_i
-    @number_of_payments = params[:number_of_payments].to_i
-    @present_value = params[:present_value].to_i
-    rate12 = @interest_rate/100.0/12
+    @interest_rate = params[:interest_rate].to_f
+    @number_of_payments = params[:number_of_payments].to_f
+    @present_value = params[:present_value].to_f
+    rate12 = @interest_rate/100/12
     numerator = @present_value*rate12
     denomenator = 1-(1+rate12)**-@number_of_payments
     pmt = numerator/denomenator
